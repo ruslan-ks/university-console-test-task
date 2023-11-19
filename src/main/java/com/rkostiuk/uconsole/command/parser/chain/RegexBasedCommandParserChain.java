@@ -2,20 +2,12 @@ package com.rkostiuk.uconsole.command.parser.chain;
 
 import com.rkostiuk.uconsole.command.CommandParam;
 import com.rkostiuk.uconsole.command.CommandType;
-import com.rkostiuk.uconsole.command.parser.CommandParser;
 
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class RegexBasedCommandParserChain extends AbstractCommandParserChain {
-
-    protected RegexBasedCommandParserChain() {
-    }
-
-    protected RegexBasedCommandParserChain(CommandParser next) {
-        super(next);
-    }
+public abstract class RegexBasedCommandParserChain extends CommandParserChain {
 
     /**
      * @return Pattern to be used for command matching
