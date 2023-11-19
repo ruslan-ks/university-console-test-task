@@ -13,4 +13,7 @@ public interface DepartmentRepository extends JpaRepository<Department, Integer>
 
     @Query("select avg(l.salary) from Department d left join d.lectors l where d.name = ?1")
     Optional<Double> findAverageSalary(String departmentName);
+
+    @Query("select count(l) from Department d left join d.lectors l where d.name = ?1")
+    Optional<Integer> countEmployees(String departmentName);
 }

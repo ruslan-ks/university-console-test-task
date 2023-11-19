@@ -18,6 +18,12 @@ public class DataJpaDepartmentService implements DepartmentService {
         return departmentRepository.findAverageSalary(departmentName).orElse(.0);
     }
 
+    @Override
+    public int countEmployees(String departmentName) throws DepartmentNotFoundException {
+        throwIfNotFound(departmentName);
+        return departmentRepository.countEmployees(departmentName).orElse(0);
+    }
+
     private void throwIfNotFound(String departmentName) {
         if (!departmentRepository.existsByName(departmentName)) {
             throw new DepartmentNotFoundException("Department '" + departmentName + "' not found");

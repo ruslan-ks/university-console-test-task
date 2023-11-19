@@ -5,11 +5,14 @@ import com.rkostiuk.uconsole.command.Command;
 import com.rkostiuk.uconsole.command.CommandType;
 import com.rkostiuk.uconsole.command.factory.CommandFactory;
 import com.rkostiuk.uconsole.command.factory.MapBasedCommandFactory;
+import com.rkostiuk.uconsole.command.impl.DepartmentEmployeeCountCommand;
 import com.rkostiuk.uconsole.service.DepartmentService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Map;
+
+import static com.rkostiuk.uconsole.command.CommandType.*;
 
 @Configuration
 public class CommandFactoryConfig {
@@ -17,7 +20,8 @@ public class CommandFactoryConfig {
     @Bean
     public CommandFactory commandFactory(DepartmentService departmentService) {
         Map<CommandType, Command> commandMap = Map.of(
-                CommandType.AVERAGE_DEPARTMENT_SALARY, new AverageDepartmentSalaryCommand(departmentService)
+                AVERAGE_DEPARTMENT_SALARY, new AverageDepartmentSalaryCommand(departmentService),
+                DEPARTMENT_EMPLOYEE_COUNT, new DepartmentEmployeeCountCommand(departmentService)
         );
         return new MapBasedCommandFactory(commandMap);
     }
