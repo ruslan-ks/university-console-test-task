@@ -1,5 +1,7 @@
-package com.rkostiuk.uconsole.command;
+package com.rkostiuk.uconsole.command.impl;
 
+import com.rkostiuk.uconsole.command.Command;
+import com.rkostiuk.uconsole.command.CommandResult;
 import com.rkostiuk.uconsole.service.DepartmentService;
 
 import java.util.List;

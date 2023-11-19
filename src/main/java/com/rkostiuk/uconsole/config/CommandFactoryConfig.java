@@ -1,6 +1,6 @@
 package com.rkostiuk.uconsole.config;
 
-import com.rkostiuk.uconsole.command.AverageDepartmentSalaryCommand;
+import com.rkostiuk.uconsole.command.impl.AverageDepartmentSalaryCommand;
 import com.rkostiuk.uconsole.command.Command;
 import com.rkostiuk.uconsole.command.CommandType;
 import com.rkostiuk.uconsole.command.factory.CommandFactory;
