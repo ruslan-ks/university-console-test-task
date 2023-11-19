@@ -24,6 +24,12 @@ public class DataJpaDepartmentService implements DepartmentService {
         return departmentRepository.countEmployees(departmentName).orElse(0);
     }
 
+    @Override
+    public String findHeadName(String departmentName) throws DepartmentNotFoundException {
+        throwIfNotFound(departmentName);
+        return departmentRepository.findHeadName(departmentName);
+    }
+
     private void throwIfNotFound(String departmentName) {
         if (!departmentRepository.existsByName(departmentName)) {
             throw new DepartmentNotFoundException("Department '" + departmentName + "' not found");

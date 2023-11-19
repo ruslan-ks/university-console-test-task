@@ -11,9 +11,12 @@ import java.util.Optional;
 public interface DepartmentRepository extends JpaRepository<Department, Integer> {
     boolean existsByName(String departmentName);
 
-    @Query("select avg(l.salary) from Department d left join d.lectors l where d.name = ?1")
+    @Query("select avg(l.salary) from Department d join d.lectors l where d.name = ?1")
     Optional<Double> findAverageSalary(String departmentName);
 
-    @Query("select count(l) from Department d left join d.lectors l where d.name = ?1")
+    @Query("select count(l) from Department d join d.lectors l where d.name = ?1")
     Optional<Integer> countEmployees(String departmentName);
+
+    @Query("select d.head.name from Department d where d.name = ?1")
+    String findHeadName(String departmentName);
 }
