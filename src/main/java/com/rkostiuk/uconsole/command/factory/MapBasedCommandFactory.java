@@ -7,9 +7,11 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 public class MapBasedCommandFactory implements CommandFactory {
-    private final Map<CommandType, Command> typeCommandMap = Map.of(
+    private final Map<CommandType, Command> typeCommandMap;
 
-    );
+    public MapBasedCommandFactory(Map<CommandType, Command> typeCommandMap) {
+        this.typeCommandMap = typeCommandMap;
+    }
 
     @Override
     public Command getCommand(CommandType type) {

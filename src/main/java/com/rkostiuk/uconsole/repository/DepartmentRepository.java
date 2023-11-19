@@ -5,13 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, Integer> {
-    @Query("from Department d left join fetch d.lectors")
-    List<Department> findAllFetchLectors();
+    boolean existsByName(String departmentName);
 
     @Query("select avg(l.salary) from Department d left join d.lectors l where d.name = ?1")
-    double findAverageSalary(String departmentName);
+    Optional<Double> findAverageSalary(String departmentName);
 }
