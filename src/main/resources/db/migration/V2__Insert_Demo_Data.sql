@@ -1,9 +1,3 @@
-INSERT INTO departments(name)
-VALUES ('Gryffindor'),
-       ('Hufflepuff'),
-       ('Ravenclaw'),
-       ('Slytherin');
-
 INSERT INTO lectors(name, degree, salary)
 VALUES ('Godric Gryffindor', 'PROFESSOR', 1000), -- Gryffindor
        ('Minerva McGonagall', 'PROFESSOR', 800),
@@ -14,7 +8,14 @@ VALUES ('Godric Gryffindor', 'PROFESSOR', 1000), -- Gryffindor
        ('Salazar Slytherin', 'PROFESSOR', 100500), -- Slytherin
        ('Severus Snape', 'PROFESSOR', 100500),
        ('Horace Slughorn', 'PROFESSOR', 100500),
-       ('Tom Riddle', 'ASSISTANT', 100);
+       ('Tom Riddle', 'ASSISTANT', 100),
+       ('Rowena Ravenclaw', 'PROFESSOR', 700); -- Ravenclaw
+
+INSERT INTO departments(name, head_id)
+VALUES ('Gryffindor', 1),
+       ('Hufflepuff', 4),
+       ('Slytherin', 7),
+       ('Ravenclaw', 11);
 
 INSERT INTO department_lectors(department_id, lector_id)
 VALUES (1, 1),

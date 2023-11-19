@@ -31,6 +31,9 @@ public class Lector {
     @ManyToMany(mappedBy = "lectors")
     private Set<Department> departments = new HashSet<>();
 
+    @OneToOne(mappedBy = "head")
+    private Department headOfDepartment;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,5 +95,13 @@ public class Lector {
 
     public void addDepartment(Department department) {
         this.departments.add(department);
+    }
+
+    public Department getHeadOfDepartment() {
+        return headOfDepartment;
+    }
+
+    public void setHeadOfDepartment(Department headOfDepartment) {
+        this.headOfDepartment = headOfDepartment;
     }
 }

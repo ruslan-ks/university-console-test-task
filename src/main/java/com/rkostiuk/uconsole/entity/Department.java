@@ -18,6 +18,10 @@ public class Department {
     @NaturalId
     private String name;
 
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "head_id")
+    private Lector head;
+
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "department_lectors",
             joinColumns = @JoinColumn(name = "department_id"),
@@ -43,6 +47,7 @@ public class Department {
         return "Department{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", head=" + head +
                 ", lectors=" + lectors +
                 '}';
     }
@@ -70,5 +75,14 @@ public class Department {
     public void addLector(Lector lector) {
         lector.addDepartment(this);
         lectors.add(lector);
+    }
+
+    public Lector getHead() {
+        return head;
+    }
+
+    public void setHead(Lector head) {
+        this.head = head;
+        head.setHeadOfDepartment(this);
     }
 }
