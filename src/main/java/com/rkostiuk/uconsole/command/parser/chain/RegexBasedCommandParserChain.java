@@ -33,10 +33,10 @@ public abstract class RegexBasedCommandParserChain extends CommandParserChain {
         return callFallbackIfPresentOrElseThrow(command);
     }
 
-    private List<Object> extractArgs(Matcher matcher) {
+    private Object[] extractArgs(Matcher matcher) {
         return getArgumentGroups().stream()
                 .map(matcher::group)
                 .map(s -> (Object) s)
-                .toList();
+                .toArray();
     }
 }
