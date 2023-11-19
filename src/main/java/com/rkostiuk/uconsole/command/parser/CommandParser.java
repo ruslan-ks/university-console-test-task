@@ -1,7 +1,7 @@
 package com.rkostiuk.uconsole.command.parser;
 
-import com.rkostiuk.uconsole.command.CommandParam;
+import com.rkostiuk.uconsole.command.CommandDetails;
 
 public interface CommandParser {
-    CommandParam parse(String command);
+    CommandDetails parse(String command);
 }

@@ -1,6 +1,6 @@
 package com.rkostiuk.uconsole.command.parser.chain;
 
-import com.rkostiuk.uconsole.command.CommandParam;
+import com.rkostiuk.uconsole.command.CommandDetails;
 import com.rkostiuk.uconsole.command.CommandType;
 
 import java.util.List;
@@ -25,10 +25,10 @@ public abstract class RegexBasedCommandParserChain extends CommandParserChain {
     protected abstract CommandType getCommandType();
 
     @Override
-    public CommandParam parse(String command) {
+    public CommandDetails parse(String command) {
         Matcher matcher = getCommandPattern().matcher(command);
         if (matcher.matches()) {
-            return new CommandParam(getCommandType(), extractArgs(matcher));
+            return new CommandDetails(getCommandType(), extractArgs(matcher));
         }
         return callFallbackIfPresentOrElseThrow(command);
     }
