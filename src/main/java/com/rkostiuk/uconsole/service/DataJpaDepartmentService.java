@@ -1,8 +1,11 @@
 package com.rkostiuk.uconsole.service;
 
+import com.rkostiuk.uconsole.dto.DepartmentStatistics;
 import com.rkostiuk.uconsole.repository.DepartmentRepository;
 import com.rkostiuk.uconsole.service.exception.DepartmentNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class DataJpaDepartmentService implements DepartmentService {
@@ -28,6 +31,12 @@ public class DataJpaDepartmentService implements DepartmentService {
     public String findHeadName(String departmentName) throws DepartmentNotFoundException {
         throwIfNotFound(departmentName);
         return departmentRepository.findHeadName(departmentName);
+    }
+
+    @Override
+    public List<DepartmentStatistics> getStatistics(String departmentName) throws DepartmentNotFoundException {
+        throwIfNotFound(departmentName);
+        return departmentRepository.getStatistics(departmentName);
     }
 
     private void throwIfNotFound(String departmentName) {
