@@ -30,4 +30,7 @@ public interface DepartmentRepository extends JpaRepository<Department, Integer>
             group by l.degree
             """)
     List<DepartmentStatistics> getStatistics(String departmentName);
+
+    @Query("select d.name from Department d where d.name ilike ?1")
+    List<String> findNamesLikeIgnoreCase(String departmentNamePattern);
 }

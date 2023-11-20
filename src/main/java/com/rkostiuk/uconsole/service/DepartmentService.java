@@ -10,4 +10,6 @@ public interface DepartmentService {
     int countEmployees(String departmentName) throws DepartmentNotFoundException;
     String findHeadName(String departmentName) throws DepartmentNotFoundException;
     List<DepartmentStatistics> getStatistics(String departmentName) throws DepartmentNotFoundException;
+    List<String> findNamesContainingIgnoreCase(String string);
+    List<String> globalNameSearch(String string);
 }
