@@ -62,14 +62,14 @@ Db tables are created and filled with demo data on startup via Flyway migrations
 
 ### Command design
 
-To fulfill the task, **Command design pattern** was applied.
+To fulfill the task, **Command design pattern** is applied.
 
 Command class diagram
 ![Db structure](img/command-class-diagram.png)
 
 * There are 5 implementations of Command interface shown on the diagram.
 * Each Command implementation relies on DepartmentService to execute its query
-* To create Command objects **Abstract Factory design patter** was applied.
+* To create Command objects **Abstract Factory design patter** is applied.
 
 ### Command parsing
 
@@ -77,7 +77,7 @@ Before obtaining the Command implementation instance, one needs to parse user in
 to be used as well as its arguments. This information is contained in CommandDetails object.
 
 Command parsing is performed via CommandParser. To implement parsing mechanism **Chain of Responsibility design 
-pattern** was applied. The chain is built via **Builder design pattern**
+pattern** is applied. The chain is built via **Builder design pattern**
 
 CommandParser class diagram
 ![Db structure](img/command-parser-chain-class-diagram.png)
